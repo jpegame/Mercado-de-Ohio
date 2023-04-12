@@ -1,0 +1,223 @@
+:root {
+	--kiracor: #ff3c38ff;
+	--corfundo: rgb(128, 50, 58);
+	--corletra: #fdf7ea;
+    --blue-gray: #6699ccff;
+    --maize: #fff275ff;
+    --pumpkin: #ff8c42ff;
+    --redwood: #a23e48ff;
+}
+
+h2 {
+    padding-left: 20px;
+}
+
+#tipoProduto {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: var(--kiracor);
+    color: var(--corletra);
+    padding: 10px;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+	padding: 0;
+    color: var(--corletra);
+    background-color: var(--corfundo);
+}
+
+ul {
+    display: grid;
+}
+
+ul li {
+    font-size: large;
+    padding: 10px;
+    float: left;
+    font-weight: bold;
+}
+li> ul li {
+    display: grid;
+    list-style:none;
+    font-weight: normal;
+}
+
+nav {
+	color: var(--corletra);
+}
+
+nav a {
+    padding-right: 20px;
+	color: var(--corletra);
+	font-size: larger;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: var(--blue-gray);
+	padding: 7px;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--redwood);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--blue-gray);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #005d80;
+    cursor: pointer;
+}
+
+.square {
+    width: 50%;
+  }
+  
+.square:after {
+content: "";
+display: block;
+padding-bottom: 100%;
+}
+
+/* Set the background color of the input */
+input[type="number"] {
+    background-color: #d67d7d;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style the increment and decrement buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    background: linear-gradient(to bottom right, var(--blue-gray) 50%, var(--kiracor) 50%);
+    height: 20px;
+    width: 20px;
+    transform: rotate(45deg);
+}
+
+input[type="file"]{
+    color: var(--corletra);
+}
+
+button {
+	background: gray;
+	color: inherit;
+	border: none;
+    margin-left: 14px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: #ff9898;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+input[type=submit] {
+    width: 100%;
+    background-color: var(--blue-gray);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: rgb(112, 108, 108);
+    opacity: 1; /* Firefox */
+  }
+  
+input[type=submit]:hover {
+    background-color: #005d80;
+}
+  
+.cadastroDiv {
+      width: 50%;
+      margin-left: 25%;
+}
+
+input[type="file"] {
+    display: none;
+}
+select {
+    font-weight: bold;
+}
+
+label[for="imagem"] {
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    background-color: #999;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+label {
+    font-size: larger;
+}

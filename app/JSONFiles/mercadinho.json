@@ -1,0 +1,102 @@
+{
+    "nome": "Mercado de Ohio",
+    "mercado": [
+        {
+            "tipo": "Frutas",
+            "produtos": [
+                {
+                    "nome": "Maca",
+                    "preco": "10,00",
+                    "descricao": "quilo",
+                    "quantidade": "50",
+                    "imagem": "/static/Imagens/Maca.jpg"
+                },
+                {
+                    "nome": "Banana",
+                    "preco": "5,00",
+                    "descricao": "cacho",
+                    "quantidade": "30",
+                    "imagem": "/static/Imagens/Banana.jpg"
+                },
+                {
+                    "nome": "Uva",
+                    "preco": "10,00",
+                    "descricao": "cacho",
+                    "quantidade": "30",
+                    "imagem": "/static/Imagens/Uva.jpg"
+                },
+                {
+                    "nome": "Melancia",
+                    "preco": "12",
+                    "descricao": "unidade",
+                    "quantidade": 50.0,
+                    "imagem": "/static/Imagens\\melancia.jpg"
+                }
+            ]
+        },
+        {
+            "tipo": "Bebidas",
+            "produtos": [
+                {
+                    "nome": "Suco de morango",
+                    "preco": "10,00",
+                    "descricao": "unidade",
+                    "quantidade": "10",
+                    "imagem": "/static/Imagens/Suco_de_morango.jpg"
+                },
+                {
+                    "nome": "Cachaca",
+                    "preco": "1,00",
+                    "descricao": "unidade",
+                    "quantidade": "100",
+                    "imagem": "/static/Imagens/Cachaca.jpg"
+                },
+                {
+                    "nome": "red bull",
+                    "preco": "12",
+                    "descricao": "a",
+                    "quantidade": 500.0,
+                    "imagem": "/static/Imagens\\EAwkidFXoAAwsTV.jpg"
+                }
+            ]
+        },
+        {
+            "tipo": "Hardware",
+            "produtos": [
+                {
+                    "nome": "Placa de video",
+                    "preco": "10000,00",
+                    "descricao": "unidade",
+                    "quantidade": "10",
+                    "imagem": "/static/Imagens/Placa_de_video.jpg"
+                },
+                {
+                    "nome": "Processador mais pica",
+                    "preco": "1000,00",
+                    "descricao": "unidade",
+                    "quantidade": "100",
+                    "imagem": "/static/Imagens/Processador_mais_pica.jpg"
+                }
+            ]
+        },
+        {
+            "tipo": "Coisas que ficam perto do caixa",
+            "produtos": [
+                {
+                    "nome": "Bala",
+                    "preco": "2,00",
+                    "descricao": "unidade",
+                    "quantidade": "200",
+                    "imagem": "/static/Imagens/Bala.jpg"
+                },
+                {
+                    "nome": "Chocolate",
+                    "preco": "2,50",
+                    "descricao": "unidade",
+                    "quantidade": "500",
+                    "imagem": "/static/Imagens/Chocolate.jpg"
+                }
+            ]
+        }
+    ]
+}

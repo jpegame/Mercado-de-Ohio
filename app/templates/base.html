@@ -1,0 +1,26 @@
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="shortcut icon" href="/static/Imagens/logo.jpg" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <title>{{title}}</title>
+    </head>
+{% endblock %}
+
+<header>
+    <h1 id="nome"></h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Mercado</a>
+        <a href="{{ url_for('carrinho') }}">Carrinho</a>
+        <a href="{{ url_for('cadastro') }}">Cadastro</a>
+    </nav>
+    {% block header %}
+    {% endblock %}
+</header>
+
+{% block content %}
+
+{% endblock %}

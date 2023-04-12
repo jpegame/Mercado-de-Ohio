@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<body>
+    <ul id="produtos"></ul>
+</body>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/carrinho_items',
+            dataType: 'json',
+            success: function(response) {
+                // Update the HTML page with the JSON data
+                Load_Carrinho(response)
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+
+    function Load_Carrinho(CarrinhoJson) {
+        document.getElementById("nome").innerHTML = CarrinhoJson['nome']
+        for (items of CarrinhoJson['items']) {
+            //setando variaveis
+            li = document.createElement('li')
+            qtd = document.createElement('form')
+            input_qtd = document.createElement('input')
+            removerBtn = document.createElement('button')
+            //atribuicoes input
+            input_qtd.type = 'number'
+            input_qtd.name = items['produto']
+            input_qtd.setAttribute('value',items['quantidade'])
+            input_qtd.addEventListener("change",function (event) {
+                SalvarCarrinho(event.target.name,event.target.value)
+            })
+            //atribuicoes forms
+            qtd.innerHTML = "Quantidade"
+            qtd.appendChild(input_qtd)
+            //atribuicao botao
+            removerBtn.innerHTML = "Remover"
+            removerBtn.name = items['produto']
+            removerBtn.addEventListener("click",function (event) {
+                RemoverProduto(event.target.name)
+            })
+            //atribuicao lista
+            li.innerHTML = items['produto'].replaceAll("_"," ")
+            li.appendChild(removerBtn)
+            li.appendChild(qtd)
+            document.getElementById('produtos').appendChild(li)
+        }
+    }
+
+    function RemoverProduto(produto) {
+        event.preventDefault();
+        // Make an AJAX request to the Flask route
+        $.ajax({
+            url: '/process',
+            method: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify({produto: produto})
+        });
+        location.reload()
+    }
+
+    function SalvarCarrinho(produto, quantidade) {
+        event.preventDefault();
+        // Make an AJAX request to the Flask route
+        $.ajax({
+            url: '/process',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({produto: produto,quantidade: quantidade})
+        });
+    }
+</script>
+{% endblock %}
+</html>

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+<body>
+    <div id="data" ></div>
+</body>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/data',
+            dataType: 'json',
+            success: function(response) {
+                // Update the HTML page with the JSON data
+                LoadMercado(response);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+    function LoadMercado(mercadoJson) {
+        document.getElementById("nome").innerHTML = mercadoJson['nome']
+        for (tipo of mercadoJson['mercado']){
+            var nome = document.createElement("h1")
+            var container = document.createElement("div")
+            //atrbuicoes
+            container.classList.add("container")
+            nome.id = "tipoProduto"
+            nome.innerHTML = tipo['tipo']
+            for (produto of tipo['produtos']){
+                //setando variaveis
+                var imagemnome = produto['nome'].replaceAll(' ','_')
+                var imagem = document.createElement("img")
+                var card = document.createElement("div")
+                var card_image = document.createElement("div")
+                var card_content = document.createElement("div")
+                var card_title = document.createElement("h2")
+                var card_link = document.createElement("a")
+                //atribuicao botao
+                card_link.classList.add("card-button")
+                card_link.innerHTML = "Adicionar ao carrinho"
+                card_link.id = imagemnome
+                card_link.addEventListener("click", function(event){
+                    var buttonId = event.target.id;
+                    SalvarCarrinho(buttonId)
+                })
+                //atribuicao titulo
+                card_title.classList.add("card-title")
+                card_title.innerHTML = produto['nome'] + ": "+ produto['preco'] + " por " + produto['descricao']
+                //atribuicao content
+                card_content.classList.add("card-content")
+                //atribuicao image
+                imagem.setAttribute('src', produto['imagem']);
+                card_image.classList.add("card-image")
+                card_image.appendChild(imagem)
+                //atribuicao card
+                card.classList.add("card")
+                //appends
+                card_content.appendChild(card_title)
+                card_content.appendChild(card_link)
+                card.appendChild(card_image)
+                card.appendChild(card_content)
+                container.appendChild(card)
+            }
+            document.body.appendChild(nome)
+            document.body.appendChild(container)
+        }
+    }
+    function SalvarCarrinho(produto) {
+        event.preventDefault();
+        var data = produto;
+        // Make an AJAX request to the Flask route
+        $.ajax({
+            url: '/process',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({produto: data,quantidade: 1})
+        });
+    }
+</script>
+{% endblock %}
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content %}
+<body>
+    <div class="cadastroDiv">
+        <form method="POST" action="/cadastro" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.tipo.label }} {{ form.tipo }}
+            {{ form.nome.label }} {{ form.nome(size=20, placeholder="Nome do produto", autocomplete="off") }}
+            {{ form.preco.label }} {{ form.preco(size=20, placeholder="Preco...", autocomplete="off") }}
+            {{ form.descricao.label }} {{ form.descricao(size=20, placeholder="Tipo de medida", autocomplete="off") }}
+            {{ form.quantidade.label }} {{ form.quantidade(size=20, placeholder="Estoque", autocomplete="off") }}
+            {{ form.imagem.label }} {{ form.imagem(size=20) }}
+            {{ form.submit() }}
+        </form>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/data',
+            dataType: 'json',
+            success: function(response) {
+                // Update the HTML page with the JSON data
+                document.getElementById("nome").innerHTML = response['nome']
+                document.getElementById("imagem").setAttribute("accept","image/*")
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+</script>
+{% endblock %}
+</html>
